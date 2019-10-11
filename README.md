@@ -43,6 +43,10 @@ Application state is the mental model the redux store uses. Component state is s
 
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
 
+I hated redux at first. It was so much boilerplate, so many different files, so many different concepts to juggle. But now that we've done the process a few times, I really see the benefits of it. It's kind of incredible. I love how we can move all of our state logic into this silo so that our components just deal with presentation or connecting to the store. It's really neat. I think redux also forces you to plan ahead a little bit. Hooks are great and everything, but it's really easy to just blindly start coding and then 💥 you're in a real pickle because you have to start moving state around. That's when bugs happen.
+
+The reducer pattern and the finite state machine paradigm are also really useful for other aspects of programming software. Those concepts will come into play in so many other areas of my career, so I'm excited to learn them now and start applying them to my work.
+
 ## Project Set Up
 
 Follow these steps to set up your project:
