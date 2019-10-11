@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { fetchSmurfs } from '../actions';
 
+import SmurfCard from './Smurfcard';
+
 const SmurfsContainer = ({ fetchSmurfs, error, isFetching, smurfsList }) => {
   useEffect(() => {
     fetchSmurfs();
