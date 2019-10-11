@@ -1,4 +1,5 @@
 import { START_FETCHING_SMURFS, SMURFS_FETCH_SUCCESS, SMURFS_FETCH_FAILURE } from '../actions';
+import { START_CREATING_SMURF, SMURF_CREATE_SUCCESS, SMURF_CREATE_FAILURE } from '../actions';
 import { initialState } from './initialState';
 
 export default (state = initialState, action) => {
@@ -23,6 +24,28 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
+        error: action.payload,
+      };
+    case START_CREATING_SMURF:
+      console.log(START_CREATING_SMURF);
+      return {
+        ...state,
+        isCreating: true,
+        error: '',
+      };
+    case SMURF_CREATE_SUCCESS:
+      console.log(SMURF_CREATE_SUCCESS);
+      return {
+        ...state,
+        isCreating: false,
+        smurfsList: [...state.smurfsList, ...action.payload],
+        error: '',
+      };
+    case SMURF_CREATE_FAILURE:
+      console.log(SMURF_CREATE_FAILURE);
+      return {
+        ...state,
+        isCreating: false,
         error: action.payload,
       };
     default:
