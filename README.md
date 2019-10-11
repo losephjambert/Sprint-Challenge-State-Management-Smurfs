@@ -23,6 +23,9 @@ In this challenge, you are to build a Smurfs village utilizing context or Redux 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+
+The context API tries to help solve the problem with access props inside deeply nested components. Without the context API, if you wanted a great-great-grandchild to access its root ancestor's data as props, you'd have to pass the props like this: root --> child --> grandchild --> great-grandchild --> great-great-grandchild. The context API allows you to wrap a collections of components in a Provider and then access that Provider's data from anywhere inside that Provider's component tree.
+
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
@@ -61,11 +64,11 @@ Follow these steps to set up your project:
 ```js
 [
   {
-    name: "Brainey",
+    name: 'Brainey',
     age: 200,
-    height: "5cm",
-    id: 0
-  }
+    height: '5cm',
+    id: 0,
+  },
 ];
 ```
 
@@ -94,17 +97,17 @@ Example of object created in Smurf DB:
 ```js
 [
   {
-    name: "Brainey",
+    name: 'Brainey',
     age: 200,
-    height: "5cm",
-    id: 0
+    height: '5cm',
+    id: 0,
   },
   {
-    name: "Sleepy",
+    name: 'Sleepy',
     age: 200,
-    height: "5cm",
-    id: 1
-  }
+    height: '5cm',
+    id: 1,
+  },
 ];
 ```
 
@@ -154,10 +157,10 @@ Example:
 ```js
 output: [
   {
-    name: "Sleepy",
+    name: 'Sleepy',
     age: 200,
-    height: "5cm",
-    id: 1
-  }
+    height: '5cm',
+    id: 1,
+  },
 ];
 ```
