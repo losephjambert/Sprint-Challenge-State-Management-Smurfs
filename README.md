@@ -23,10 +23,29 @@ In this challenge, you are to build a Smurfs village utilizing context or Redux 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+
+The context API tries to help solve the problem with access props inside deeply nested components. Without the context API, if you wanted a great-great-grandchild to access its root ancestor's data as props, you'd have to pass the props like this: root --> child --> grandchild --> great-grandchild --> great-great-grandchild. The context API allows you to wrap a collections of components in a Provider and then access that Provider's data from anywhere inside that Provider's component tree.
+
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+- `actions` are packages you send to the `reducer`.
+- `dispatch()` is your application's courier. They take some data (`action.payload`) and a directive (`action.type`) and head off to the `reducer` to deliver the `action`.
+- `reducers` are your application's state managers. They receive `actions` from the `dispatch()` and, depending on the `action.type` they modify your application's data from one state to another.
+- the `store` is an object that provides your application with access to your `reducers` and the `dispatch()`, essentially it grants your application access to its state tree. It is the single source of truth because the `store` is the only location where your state exists. All components derive their props from the store, instead of one component passing its state to another component as props. Data consistency ftw :)
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+Application state is the mental model the redux store uses. Component state is state local to a specific component. A form is a really good example of where you might want local component state over using global application state. A parent cannot access a child's local state. So a good time to use Application state would be when you need the same piece of data across multiple, potentially disparate, parts of your application. User data would be a good example.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+`redux-thunk` is an application that runs between redux and react. It is commonly referred to as middle-ware. `redux-thunk` allows us to perform operations in the middle of our redux processes, specifically within our `action-creator` functions. With `redux-thunk`, we can do something like this: call a function `fetchData`. In the first line of that function we can `dispatch` an action `START_FETCHING`. That action will update our state to the "fetching state." Hopefully, we'll show the user a loading indicator. Now that our app is in a "fetching state", normally we'd have to trigger another function to send out another action, but with `redux-thunk` we can stay inside our current `action-creator` and perform some operations to fetch our data. Then, depending on the response we get, update our application state accordingly.
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+I hated redux at first. It was so much boilerplate, so many different files, so many different concepts to juggle. But now that we've done the process a few times, I really see the benefits of it. It's kind of incredible. I love how we can move all of our state logic into this silo so that our components just deal with presentation or connecting to the store. It's really neat. I think redux also forces you to plan ahead a little bit. Hooks are great and everything, but it's really easy to just blindly start coding and then 💥 you're in a real pickle because you have to start moving state around. That's when bugs happen.
+
+The reducer pattern and the finite state machine paradigm are also really useful for other aspects of programming software. Those concepts will come into play in so many other areas of my career, so I'm excited to learn them now and start applying them to my work.
 
 ## Project Set Up
 
@@ -61,11 +80,11 @@ Follow these steps to set up your project:
 ```js
 [
   {
-    name: "Brainey",
+    name: 'Brainey',
     age: 200,
-    height: "5cm",
-    id: 0
-  }
+    height: '5cm',
+    id: 0,
+  },
 ];
 ```
 
@@ -94,17 +113,17 @@ Example of object created in Smurf DB:
 ```js
 [
   {
-    name: "Brainey",
+    name: 'Brainey',
     age: 200,
-    height: "5cm",
-    id: 0
+    height: '5cm',
+    id: 0,
   },
   {
-    name: "Sleepy",
+    name: 'Sleepy',
     age: 200,
-    height: "5cm",
-    id: 1
-  }
+    height: '5cm',
+    id: 1,
+  },
 ];
 ```
 
@@ -154,10 +173,10 @@ Example:
 ```js
 output: [
   {
-    name: "Sleepy",
+    name: 'Sleepy',
     age: 200,
-    height: "5cm",
-    id: 1
-  }
+    height: '5cm',
+    id: 1,
+  },
 ];
 ```
