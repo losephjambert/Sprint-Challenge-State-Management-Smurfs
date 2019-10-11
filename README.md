@@ -34,6 +34,9 @@ The context API tries to help solve the problem with access props inside deeply 
 - the `store` is an object that provides your application with access to your `reducers` and the `dispatch()`, essentially it grants your application access to its state tree. It is the single source of truth because the `store` is the only location where your state exists. All components derive their props from the store, instead of one component passing its state to another component as props. Data consistency ftw :)
 
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+Application state is the mental model the redux store uses. Component state is state local to a specific component. A form is a really good example of where you might want local component state over using global application state. A parent cannot access a child's local state. So a good time to use Application state would be when you need the same piece of data across multiple, potentially disparate, parts of your application. User data would be a good example.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
 
