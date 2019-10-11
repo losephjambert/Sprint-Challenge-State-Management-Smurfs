@@ -1,4 +1,4 @@
-export const baseURL = `localhost:3333`;
+export const baseURL = `http://localhost:3333`;
 export const SERVICES = {
   GET: {
     smurfs: `smurfs`,
