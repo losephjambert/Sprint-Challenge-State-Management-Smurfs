@@ -10,11 +10,8 @@ const fetchSmurfs = () => dispatch => {
 
   axios
     .get(`${baseURL}/${SERVICES.GET.smurfs}`)
-    .then(response => console.log('get smurfs', response))
-    .catch(error => console.log('ERROR get smurfs', error));
+    .then(response => dispatch({ type: SMURFS_FETCH_SUCCESS, payload: response.data }))
+    .catch(error => dispatch({ type: SMURFS_FETCH_FAILURE, payload: error }));
 };
 
 export { fetchSmurfs, START_FETCHING_SMURFS, SMURFS_FETCH_SUCCESS, SMURFS_FETCH_FAILURE };
-
-// dispatch({ type: SMURFS_FETCH_SUCCESS, payload: response.data })
-// dispatch({ type: SMURFS_FETCH_FAILURE, payload: error })
