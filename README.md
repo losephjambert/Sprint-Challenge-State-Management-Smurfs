@@ -27,6 +27,12 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 The context API tries to help solve the problem with access props inside deeply nested components. Without the context API, if you wanted a great-great-grandchild to access its root ancestor's data as props, you'd have to pass the props like this: root --> child --> grandchild --> great-grandchild --> great-great-grandchild. The context API allows you to wrap a collections of components in a Provider and then access that Provider's data from anywhere inside that Provider's component tree.
 
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+- `actions` are packages you send to the `reducer`.
+- `dispatch()` is your application's courier. They take some data (`action.payload`) and a directive (`action.type`) and head off to the `reducer` to deliver the `action`.
+- `reducers` are your application's state managers. They receive `actions` from the `dispatch()` and, depending on the `action.type` they modify your application's data from one state to another.
+- the `store` is an object that provides your application with access to your `reducers` and the `dispatch()`, essentially it grants your application access to its state tree. It is the single source of truth because the `store` is the only location where your state exists. All components derive their props from the store, instead of one component passing its state to another component as props. Data consistency ftw :)
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
