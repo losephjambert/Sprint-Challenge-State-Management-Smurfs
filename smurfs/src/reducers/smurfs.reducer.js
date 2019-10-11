@@ -31,22 +31,22 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isCreating: true,
-        error: '',
+        creationError: '',
       };
     case SMURF_CREATE_SUCCESS:
       console.log(SMURF_CREATE_SUCCESS);
       return {
         ...state,
         isCreating: false,
-        smurfsList: [...state.smurfsList, ...action.payload],
-        error: '',
+        smurfsList: [...state.smurfsList, action.payload],
+        creationError: '',
       };
     case SMURF_CREATE_FAILURE:
       console.log(SMURF_CREATE_FAILURE);
       return {
         ...state,
         isCreating: false,
-        error: action.payload,
+        creationError: action.payload,
       };
     default:
       console.log('SMURFS reducer default', state);

@@ -9,8 +9,9 @@ const initialFormState = {
 const CreateSmurfForm = props => {
   const [formState, setFormState] = useState(initialFormState);
 
-  const handleSubmit = e => {
+  const handleSubmit = (e, smurfToCreate) => {
     e.preventDefault();
+    props.createSmurf(smurfToCreate);
   };
 
   const handleChange = e => {
@@ -22,7 +23,7 @@ const CreateSmurfForm = props => {
 
   const { name, age, height } = formState;
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={e => handleSubmit(e, formState)}>
       <div>
         <label htmlFor='name'>Name</label>
         <input onChange={handleChange} type='text' id='name' name='name' value={name} />
