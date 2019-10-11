@@ -27,7 +27,7 @@ const StyledFormWrapper = styled.div`
       padding: 10px 8px;
       margin: 10px;
       border: 3px solid black;
-      background-color: rgba(0, 0, 255, 0.1);
+      background-color: ghostwhite;
       max-width: 200px;
       &:focus {
         box-shadow: 6px 6px 0 0 blue;

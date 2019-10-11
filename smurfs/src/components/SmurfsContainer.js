@@ -13,11 +13,9 @@ const SmurfsContainer = ({ fetchSmurfs, deleteSmurf, error, isFetching, smurfsLi
   return (
     <section>
       <h2>All the Smurfs</h2>
-      <ul>
-        {smurfsList.map(smurf => (
-          <SmurfCard key={smurf.id} {...smurf} deleteSmurf={deleteSmurf} />
-        ))}
-      </ul>
+      {smurfsList.map(smurf => (
+        <SmurfCard key={smurf.id} {...smurf} deleteSmurf={deleteSmurf} />
+      ))}
     </section>
   );
 };
