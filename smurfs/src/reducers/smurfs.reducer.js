@@ -1,5 +1,4 @@
-export { START_FETCHING_SMURFS, SMURFS_FETCH_SUCCESS, SMURFS_FETCH_FAILURE } from '../actions';
-
+import { START_FETCHING_SMURFS, SMURFS_FETCH_SUCCESS, SMURFS_FETCH_FAILURE } from '../actions';
 import { initialState } from './initialState';
 
 export default (state = initialState, action) => {
