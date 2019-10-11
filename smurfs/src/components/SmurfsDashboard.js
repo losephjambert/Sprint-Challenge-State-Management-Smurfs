@@ -8,6 +8,12 @@ const StyledSmurfWrapper = styled.section`
   display: grid;
   grid-template-columns: 1fr;
 
+  h1 {
+    grid-column: 1 / span 2;
+    font-size: 7vmin;
+    padding-left: 20px;
+  }
+
   @media screen and (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
   }
@@ -16,8 +22,8 @@ const StyledSmurfWrapper = styled.section`
 const SmurfsDashboard = () => {
   return (
     <section>
-      <h1>Redux Smurf Village</h1>
       <StyledSmurfWrapper>
+        <h1>Redux Smurf Village</h1>
         <SmurfsFormContainer />
         <SmurfsContainer />
       </StyledSmurfWrapper>
