@@ -12,6 +12,7 @@ const CreateSmurfForm = props => {
   const handleSubmit = (e, smurfToCreate) => {
     e.preventDefault();
     props.createSmurf(smurfToCreate);
+    setFormState(initialFormState);
   };
 
   const handleChange = e => {
