@@ -7,16 +7,23 @@ export default (state = initialState, action) => {
       console.log(START_FETCHING_SMURFS);
       return {
         ...state,
+        isFetching: true,
+        error: '',
       };
     case SMURFS_FETCH_SUCCESS:
       console.log(SMURFS_FETCH_SUCCESS);
       return {
         ...state,
+        isFetching: false,
+        smurfs: [action.payload],
+        error: '',
       };
     case SMURFS_FETCH_FAILURE:
       console.log(SMURFS_FETCH_FAILURE);
       return {
         ...state,
+        isFetching: false,
+        error: action.payload,
       };
     default:
       console.log('SMURFS reducer default', state);
