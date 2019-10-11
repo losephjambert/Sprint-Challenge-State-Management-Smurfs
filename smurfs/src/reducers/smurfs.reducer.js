@@ -34,11 +34,11 @@ export default (state = initialState, action) => {
         creationError: '',
       };
     case SMURF_CREATE_SUCCESS:
-      console.log(SMURF_CREATE_SUCCESS);
+      console.log(SMURF_CREATE_SUCCESS, action.payload);
       return {
         ...state,
         isCreating: false,
-        smurfsList: [...state.smurfsList, action.payload],
+        smurfsList: action.payload,
         creationError: '',
       };
     case SMURF_CREATE_FAILURE:
