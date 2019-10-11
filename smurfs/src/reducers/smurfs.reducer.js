@@ -15,7 +15,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        smurfs: [action.payload],
+        smurfsList: [...action.payload],
         error: '',
       };
     case SMURFS_FETCH_FAILURE:
