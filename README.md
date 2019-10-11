@@ -38,6 +38,9 @@ The context API tries to help solve the problem with access props inside deeply 
 Application state is the mental model the redux store uses. Component state is state local to a specific component. A form is a really good example of where you might want local component state over using global application state. A parent cannot access a child's local state. So a good time to use Application state would be when you need the same piece of data across multiple, potentially disparate, parts of your application. User data would be a good example.
 
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+`redux-thunk` is an application that runs between redux and react. It is commonly referred to as middle-ware. `redux-thunk` allows us to perform operations in the middle of our redux processes, specifically within our `action-creator` functions. With `redux-thunk`, we can do something like this: call a function `fetchData`. In the first line of that function we can `dispatch` an action `START_FETCHING`. That action will update our state to the "fetching state." Hopefully, we'll show the user a loading indicator. Now that our app is in a "fetching state", normally we'd have to trigger another function to send out another action, but with `redux-thunk` we can stay inside our current `action-creator` and perform some operations to fetch our data. Then, depending on the response we get, update our application state accordingly.
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
 
 ## Project Set Up
