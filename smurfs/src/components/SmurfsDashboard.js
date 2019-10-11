@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import SmurfsContainer from './SmurfsContainer';
+import SmurfsFormContainer from './SmurfsFormContainer';
 
 const StyledSmurfWrapper = styled.section`
   display: grid;
@@ -17,7 +18,7 @@ const SmurfsDashboard = () => {
     <section>
       <h1>Redux Smurf Village</h1>
       <StyledSmurfWrapper>
-        <div>create smurf form goes here</div>
+        <SmurfsFormContainer />
         <SmurfsContainer />
       </StyledSmurfWrapper>
     </section>
